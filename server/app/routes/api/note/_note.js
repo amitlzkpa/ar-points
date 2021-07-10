@@ -43,6 +43,7 @@ router.post("/new", function(req, res){
 
 router.post("/update", async function(req, res) {
   let note = await Note.findOne({ noteId: req.body.noteId });
+  if (!note) return res.status(500).send("Could not find the spatial note");
   note.noteId = req.body.noteId;
   note.mapId = req.body.mapId;
   note.authorId = req.body.authorId;
