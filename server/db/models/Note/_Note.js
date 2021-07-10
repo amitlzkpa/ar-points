@@ -26,12 +26,14 @@ var mongoose = MExNServer.modules.mongoose;
  *          
  */
 var noteSchema = new mongoose.Schema({
-	nodeType: String,
-  identifier: Number,
+  noteId:String,
+  mapId: String,
+  authorId: String,
+  nodeType: String,
+  identifier: String,
 	lastMaintained: Date,
+  dateCreated: Date,
 	maintainceFrequency: Object,  // { recurrence: "Daily" } //  { recurrence: "Weekly"  day: 2}  //  { recurrence: "Monthly"  day: 15 } etc... 
-  roomId: String,
-  userId: String,
   notes: String
 },{
 	usePushEach: true

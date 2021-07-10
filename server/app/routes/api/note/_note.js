@@ -23,13 +23,15 @@ router.get("/test", function (req, res) {
 
 router.post("/new", function(req, res){
   var note = new Note({
+    noteId: req.body.noteId,
+    mapId: req.body.mapId,
+    authorId: req.body.authorId,
     nodeType: req.body.nodeType,
     identifier: req.body.identifier,
-    lastMaintained: Date.now(), // ? want to send from place note 
+    lastMaintained: req.body.identifier,
+    dateCreated: Date.now(),
     maintainceFrequency: req.body.frequency,
-    roomId: req.body.roomId,
-    userId: req.body.userId,
-    notes: req.body.notes
+    notes:req.body.notes
   });
 
   note.save(function(err, savedNote){
@@ -41,8 +43,8 @@ router.post("/new", function(req, res){
 
 router.post("/get-my-notes", function(req, res){
   Note.find({
-    userId: req.body.userId,
-    roomId: req.body.roomId,
+    authorId: req.body.authorId,
+    mapId: req.body.mapId,
   })
   .exec(function(err, notes){
     if(err) res.json(false);
@@ -50,9 +52,9 @@ router.post("/get-my-notes", function(req, res){
   });
 });
 
-router.post("/delete-by-identifier", function(req, res){
+router.post("/delete-by-noteId", function(req, res){
   Note.remove({
-    identifier: req.body.identifier,
+    noteId: req.body.noteId,
   })
   .exec(function(err, deleted){
     if(err) res.json(false);
