@@ -10,6 +10,10 @@ module.exports = {
     quiet: true,
     before: configureAPI.before,
     proxy: {
+      "/docs": {
+        target: `http://localhost:${process.env.SERVER_PORT}/`,
+        logLevel: "debug"
+      },
       "/session": {
         target: `http://localhost:${process.env.SERVER_PORT}/`,
         logLevel: "debug"

@@ -1,5 +1,6 @@
 var MExNServer = require("@ttcorestudio/mexn-server");
 var router = MExNServer.modules.express.Router();
+var swaggerAPIDocSetup = require('server/swagger');
 var passportConf = MExNServer.server.config.passport();
 
 /*
@@ -62,5 +63,8 @@ router.use(
 );
 
 // router.use('/db', passportConf.validateApiRequest, require('./db/_db'));
+
+
+swaggerAPIDocSetup.setup(router);
 
 module.exports = router;

@@ -34,6 +34,8 @@
     "project-name": "^1.0.0",
     "rootpath": "^0.1.2",
     "shelljs": "^0.8.4",
+    "swagger-jsdoc": "^4.3.2",
+    "swagger-ui-express": "^4.1.6",
     "vue": "^2.6.10",
     "vue-router": "^3.4.5",
     "vuetify": "^2.3.12",
