@@ -30,7 +30,7 @@ router.post("/new", function(req, res){
     identifier: req.body.identifier,
     lastMaintained: req.body.lastMaintained,
     dateCreated: Date.now(),
-    maintainceFrequency: req.body.frequency,
+    maintainceFrequency: req.body.maintainceFrequency,
     notes:req.body.notes
   });
 
