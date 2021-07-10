@@ -15,7 +15,7 @@ var mongoose = MExNServer.modules.mongoose;
  *          nodetype:
  *            type: String
  *            description: Type of node
-*           room:
+ *          room:
  *            type: String
  *            description: Name of the Space
  *          lastMaintained:

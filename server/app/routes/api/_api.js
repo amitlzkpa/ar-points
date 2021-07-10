@@ -69,7 +69,7 @@ router.use(
 
 // router.use('/db', passportConf.validateApiRequest, require('./db/_db'));
 
-router.use('/note', allowAnonymousAccess, require('./note/_note'));
+router.use('/note', require('./note/_note'));
 
 swaggerAPIDocSetup.setup(router);
 

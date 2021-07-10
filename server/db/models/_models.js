@@ -5,3 +5,4 @@ require('./User/_User');
 require('./File/_File');
 require('./Folder/_Folder');
 require('./Project/_Project');
+require('./Note/_Note');
