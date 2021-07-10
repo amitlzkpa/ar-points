@@ -42,7 +42,7 @@ router.post("/new", function(req, res){
 });
 
 router.post("/update", async function(req, res) {
-  let note = await Note.find({ noteId: req.body.noteId });
+  let note = await Note.findOne({ noteId: req.body.noteId });
   note.noteId = req.body.noteId;
   note.mapId = req.body.mapId;
   note.authorId = req.body.authorId;
