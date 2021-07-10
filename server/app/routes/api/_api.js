@@ -42,6 +42,11 @@ router.post("/authenticate/end", function(req, res) {
   });
 });
 
+var allowAnonymousAccess = function (req, res, next){
+  //TODO: implement logic to validate that the server is the server and no one else..
+  return next();
+}
+
 /*
  ██████  ████████ ██   ██ ███████ ██████  ███████
 ██    ██    ██    ██   ██ ██      ██   ██ ██
@@ -64,6 +69,7 @@ router.use(
 
 // router.use('/db', passportConf.validateApiRequest, require('./db/_db'));
 
+router.use('/note', allowAnonymousAccess, require('./note/_note'));
 
 swaggerAPIDocSetup.setup(router);
 
