@@ -24,7 +24,7 @@ router.get("/test", function (req, res) {
 router.post("/new", function(req, res){
   var note = new Note({
     nodeType: req.body.nodeType,
-    identifier: req.body.identified,
+    identifier: req.body.identifier,
     lastMaintained: Date.now(), // ? want to send from place note 
     maintainceFrequency: req.body.frequency,
     roomId: req.body.roomId,
