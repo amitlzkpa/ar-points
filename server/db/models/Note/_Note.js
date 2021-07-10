@@ -30,9 +30,9 @@ var noteSchema = new mongoose.Schema({
   identifier: Number,
 	lastMaintained: Date,
 	maintainceFrequency: Object,  // { recurrence: "Daily" } //  { recurrence: "Weekly"  day: 2}  //  { recurrence: "Monthly"  day: 15 } etc... 
-  room: String,
+  roomId: String,
+  userId: String,
   notes: String
-  
 },{
 	usePushEach: true
 });

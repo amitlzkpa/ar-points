@@ -15,16 +15,36 @@ router.get("/test", function (req, res) {
   return res.json(testResponse);
 });
 
+// Routes we need 
 // create note
 // edit note
 // delete note
 // get all notes by userId/spaceId
 
-// router.post("/new", function (req, res) {
-//   var project = new Note({
-//     name: req.body.name,
-    
-//   });
+router.post("/new", function(req, res){
+  var note = new Note({
+    nodeType: req.body.nodeType,
+    identifier: req.body.identified,
+    lastMaintained: Date.now(), // ? want to send from place note 
+    maintainceFrequency: req.body.frequency,
+    roomId: req.body.roomId,
+    userId: req.body.userId,
+    notes: req.body.notes
+  });
 
+  note.save(function(err, savedNote){
+      if (err) return res.status(500).send("Could not create a spatial note");
+      return res.send(savedNote);
+  })
 
-// });
+});
+
+router.post("/get-my-notes", function(req, res){
+  App.find({
+    userId: req.body.userId,
+    roomId: req.body.roomId,
+  })
+  .exec(function(err, notes){
+    return res.json(notes);
+  });
+});
