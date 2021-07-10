@@ -28,7 +28,7 @@ router.post("/new", function(req, res){
     authorId: req.body.authorId,
     nodeType: req.body.nodeType,
     identifier: req.body.identifier,
-    lastMaintained: req.body.identifier,
+    lastMaintained: req.body.lastMaintained,
     dateCreated: Date.now(),
     maintainceFrequency: req.body.frequency,
     notes:req.body.notes
