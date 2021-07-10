@@ -40,11 +40,23 @@ router.post("/new", function(req, res){
 });
 
 router.post("/get-my-notes", function(req, res){
-  App.find({
+  Note.find({
     userId: req.body.userId,
     roomId: req.body.roomId,
   })
   .exec(function(err, notes){
+    if(err) res.json(false);
     return res.json(notes);
   });
 });
+
+router.post("/delete-by-identifier", function(req, res){
+  Note.remove({
+    identifier: req.body.identifier,
+  })
+  .exec(function(err, deleted){
+    if(err) res.json(false);
+    return res.json(deleted);
+  });
+});
+
