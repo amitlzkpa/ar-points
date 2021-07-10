@@ -41,6 +41,24 @@ router.post("/new", function(req, res){
 
 });
 
+router.post("/update", async function(req, res) {
+  let note = await Note.find({ noteId: req.body.noteId });
+  note.noteId = req.body.noteId;
+  note.mapId = req.body.mapId;
+  note.authorId = req.body.authorId;
+  note.nodeType = req.body.nodeType;
+  note.identifier = req.body.identifier;
+  note.lastMaintained = req.body.lastMaintained;
+  note.dateCreated = Date.now();
+  note.maintainceFrequency = req.body.maintainceFrequency;
+  note.notes = req.body.notes;
+
+  note.save(function(err, savedNote) {
+    if (err) return res.status(500).send("Could not update the spatial note");
+    return res.send(savedNote);
+  });
+});
+
 router.post("/get-my-notes", function(req, res){
   Note.find({
     authorId: req.body.authorId,
