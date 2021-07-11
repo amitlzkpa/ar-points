@@ -71,6 +71,16 @@ router.post("/get-my-notes", function(req, res){
   });
 });
 
+router.post("/get-map-notes", function(req, res){
+  Note.find({
+    mapId: req.body.mapId,
+  })
+  .exec(function(err, notes){
+    if(err) res.json(false);
+    return res.json(notes);
+  });
+});
+
 router.post("/delete-by-noteId", function(req, res){
   Note.remove({
     noteId: req.body.noteId,
