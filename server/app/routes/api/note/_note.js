@@ -23,6 +23,8 @@ router.get("/test", function (req, res) {
 
 router.post("/new", function(req, res){
   var note = new Note({
+    noteTitle: req.body.noteTitle,
+    noteData: req.body.noteData,
     noteId: req.body.noteId,
     mapId: req.body.mapId,
     authorId: req.body.authorId,
@@ -45,6 +47,8 @@ router.post("/update", async function(req, res) {
   let note = await Note.findOne({ noteId: req.body.noteId });
   if (!note) return res.status(500).send("Could not find the spatial note");
   note.noteId = req.body.noteId;
+  note.noteTitle = req.body.noteTitle;
+  note.noteData = req.body.noteData;
   note.mapId = req.body.mapId;
   note.authorId = req.body.authorId;
   note.nodeType = req.body.nodeType;

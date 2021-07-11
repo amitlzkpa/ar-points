@@ -26,6 +26,8 @@ var mongoose = MExNServer.modules.mongoose;
  *          
  */
 var noteSchema = new mongoose.Schema({
+  noteData:String,
+  noteTitle:String,
   noteId:String,
   mapId: String,
   authorId: String,
