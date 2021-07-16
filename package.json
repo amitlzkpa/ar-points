@@ -27,7 +27,6 @@
     "inquirer": "^7.3.3",
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",
-    "mockery": "^2.1.0",
     "moment": "^2.29.0",
     "mongoose": "^4.13.18",
     "nodemon": "^1.18.10",

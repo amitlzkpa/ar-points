@@ -1,7 +1,0 @@
-Swagger API docs was successfully installed and enabled.
-You can visit /api/docs route on your app to view it.
-Swagger automatically picks up comments annotated with '@swagger' in backend code and builds API documentation out of it.
-Read more here: https://swagger.io/docs/specification/basic-structure/
-To disable access to the API you can set DISABLE_SWAGGER in your environment variables to true.
-
-Your project files have been updated. Make sure to commit them.
