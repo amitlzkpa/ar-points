@@ -1,6 +1,10 @@
-# AR Points
+# Spatial Scheduler 
 
-Welcome to the ar-points!
+Spatial Scheduler RESTful API service
+
+## IOS App
+Github Repo:
+https://github.com/acher249/TTHack2021
 
 ## Heroku Demo App
 
